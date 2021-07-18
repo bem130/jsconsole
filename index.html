@@ -19,6 +19,7 @@
         <link rel="icon" type="image/png" href="icon/256.png">
         <link rel="apple-touch-icon" href="icon/256.png">
         <script src="jsconsole.js"></script>
+        <script src="console.js"></script>
     </head>
     <body>
         <div>
@@ -26,7 +27,7 @@
                 <div class="console">
                     <div id="view"></div>
                     <div id="input">
-                        <input id="inputarea" placeholder="command" onkeypress="if(event.keyCode===13){run()}">
+                        <input id="inputarea" placeholder="command" onkeypress="if(event.keyCode===13){run()}" autocomplete="off">
                         <button id="inputbutton" onclick="run()">Run</button>
                     </div>
                 </div>
@@ -35,6 +36,11 @@
     </body>
 </html>
 <script>
+    function run(){
+        var command = document.getElementById("inputarea").value;
+        before = command;
+        setTimeout(command);
+    }
     {
         document.getElementById("inputarea").focus()
         function start(){
@@ -42,6 +48,28 @@
             print.adv("jQuery v3.6.0 | <a href='https://jquery.com/'>jquery.com</a>");
         }
         start();
+    }
+    {
+        
+        function para_get() {
+            var url_search = location.search.substr(1).split('&');
+            var para = [];
+            var key = null;
+            for(var i = 0 ; i < url_search.length ; i++)
+            {
+                key = url_search[i].split("=");
+                para[key[0]] = key[1];
+            }
+            return (para);
+        }
+        message = para_get();
+
+        if (message.param = "windowviewer"){
+            r = window.parent
+        }
+        else {
+            r = window.top
+        }
     }
 </script>
 <style>
